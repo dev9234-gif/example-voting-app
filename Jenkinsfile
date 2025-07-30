@@ -1,13 +1,17 @@
 pipeline {
-  agent {label "worker"}
-  stages {
-    stage {
-      steps(first step){
-      sh "first step"
-      }
+    agent { label 'worker' }
+
+    stages {
+        stage('First Step') {
+            steps {
+                sh 'echo "First step"'
+            }
+        }
+
+        stage('Second Step') {
+            steps {
+                sh 'echo "Second step"'
+            }
+        }
     }
-    stage(second step){
-      sh "second step"
-    }
-  }
 }
