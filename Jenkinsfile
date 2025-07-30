@@ -2,7 +2,7 @@ pipeline {
   agent {label "worker"}
   stages {
     stage {
-      steps(first step) {
+      steps(first step){
       sh "first step"
       }
     }
