@@ -20,7 +20,9 @@ pipeline {
                 sh 'docker push dev9234/pipeline:v$BUILD_NUMBER'
             }
         }
-        stage('run parallel') {
+        when { environment name: 'qa', value: 'production' }
+        {
+        stage('run testing') {
             parallel {
         stage('Second Step') {
             steps {
@@ -33,6 +35,7 @@ pipeline {
             }
         }
             }
+        }
         }
     }
 }
