@@ -1,6 +1,11 @@
 pipeline {
     agent { label 'worker' }
-
+    options { buildDiscarder(logRotator(numToKeepStr: '15'))
+              disableConcurrentBuilds() 
+              retry(2)
+              timeout(time: 10, unit: 'MINUTES') 
+            }
+     parameters { booleanParam(name: 'BRANCH', defaultValue: true, description: '') }
     stages {
         stage('First Step') {
             steps {
