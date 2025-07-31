@@ -6,6 +6,7 @@ pipeline {
               timeout(time: 10, unit: 'MINUTES') 
             }
      parameters { booleanParam(name: 'BRANCH', defaultValue: true, description: '') }
+     triggers { pollSCM('* * * * *') }
     stages {
         stage('First Step') {
             steps {
