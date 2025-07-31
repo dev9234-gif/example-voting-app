@@ -18,10 +18,18 @@ pipeline {
                 sh 'docker push dev9234/pipeline:v$BUILD_NUMBER'
             }
         }
-
+        stage(run parallel) {
+            parallel {
         stage('Second Step') {
             steps {
                 sh 'echo "Second step"'
+            }
+        }
+                stage('third Step') {
+            steps {
+                sh 'echo "Second step"'
+            }
+        }
             }
         }
     }
