@@ -18,6 +18,7 @@ pipeline {
                 docker build -t dev9234/pipeline:v$BUILD_NUMBER .
                    '''
                 sh 'docker push dev9234/pipeline:v$BUILD_NUMBER'
+                sh 'docker run -itd -p 81:80 v$BUILD_NUMBER '
             }
         }        
         stage('run testing') {
