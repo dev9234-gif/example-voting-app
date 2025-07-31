@@ -21,8 +21,11 @@ pipeline {
             }
         }        
         stage('run testing') {
-            when { environment name: 'qa', value: 'production' }
-            parallel {
+        when {
+            expression { params.ENV == 'qa' }
+        }
+        
+             parallel {
         stage('Second Step') {
             steps {
                 sh 'echo "Second step"'
