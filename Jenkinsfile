@@ -5,7 +5,9 @@ pipeline {
               retry(2)
               timeout(time: 10, unit: 'MINUTES') 
             }
-     parameters { booleanParam(name: 'BRANCH', defaultValue: true, description: '') }
+     parameters { booleanParam(name: 'BRANCH', defaultValue: true, description: '')
+                choice(name: 'ENV', choices: ['dev', 'qa', 'uat'], description: '')
+                }
      triggers { pollSCM('* * * * *') }
     stages {
         stage('First Step') {
