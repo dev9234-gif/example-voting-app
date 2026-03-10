@@ -3,7 +3,7 @@ pipeline {
 
     stages {
 
-        stage("Docker build and push") {
+        stage("vote") {
             steps {
                 sh """
                 docker login -u dev9234 -p Manjeet9234
@@ -14,7 +14,7 @@ pipeline {
                 """
             }
         }
-        stage("Docker build and push") {
+        stage("Result") {
             steps {
                 sh """
                 cd result
