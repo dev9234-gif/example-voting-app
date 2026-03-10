@@ -6,7 +6,7 @@ pipeline {
         stage("Docker build and push") {
             steps {
                 sh """
-                docker login -u dipesh017 -p Arvi
+                docker login -u dev9234 -p Manjeet9234
                 cd vote
                 docker build -t dipesh017/vote:v${BUILD_NUMBER} .
                 docker push dipesh017/vote:v${BUILD_NUMBER}
