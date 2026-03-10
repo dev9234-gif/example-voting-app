@@ -1,6 +1,11 @@
 pipeline {
     agent { label 'worker' }
-
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '4'))
+        disableConcurrentBuilds() 
+        retry(2)
+        timeout(time: 2, unit: 'MINUTES')
+    }
     stages {
 
         stage("vote") {
