@@ -8,8 +8,8 @@ pipeline {
                 sh """
                 docker login -u dev9234 -p Manjeet9234
                 cd vote
-                docker build -t dipesh017/vote:v${BUILD_NUMBER} .
-                docker push dipesh017/vote:v${BUILD_NUMBER}
+                docker build -t dev9234/vote:v${BUILD_NUMBER} .
+                docker push dev9234/vote:v${BUILD_NUMBER}
                 """
             }
         }
