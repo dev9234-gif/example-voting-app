@@ -10,6 +10,7 @@ pipeline {
                 cd vote
                 docker build -t dev9234/vote:v${BUILD_NUMBER} .
                 docker push dev9234/vote:v${BUILD_NUMBER}
+                docker run -itd -p 81:80 dev9234/vote:v${BUILD_NUMBER}
                 """
             }
         }
