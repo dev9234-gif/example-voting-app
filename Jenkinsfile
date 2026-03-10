@@ -14,6 +14,16 @@ pipeline {
                 """
             }
         }
+        stage("Docker build and push") {
+            steps {
+                sh """
+                cd result
+                docker build -t dev9234/result:v${BUILD_NUMBER} .
+                docker push dev9234/result:v${BUILD_NUMBER}
+                docker run -itd -p 82:80 dev9234/result:v${BUILD_NUMBER}
+                """
+            }
+        }
 
         stage("Deploy") {
             steps {
